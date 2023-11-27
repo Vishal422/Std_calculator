@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Student Marks Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Marks Calculator</h1>
+        <form action="/calculate" method="post">
+            <label for="student_name">Student Name:</label>
+            <input type="text" name="student_name" required>
+
+            <label for="roll_number">Roll Number:</label>
+            <input type="text" name="roll_number" required>
+
+            <label for="marks_science">Science:</label>
+            <input type="number" name="marks_science" required>
+
+            <label for="marks_social">Social:</label>
+            <input type="number" name="marks_social" required>
+
+            <label for="marks_maths">Maths:</label>
+            <input type="number" name="marks_maths" required>
+
+            <label for="marks_kannada">Kannada:</label>
+            <input type="number" name="marks_kannada" required>
+
+            <label for="marks_hindi">Hindi:</label>
+            <input type="number" name="marks_hindi" required>
+
+            <label for="marks_english">English:</label>
+            <input type="number" name="marks_english" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if student_name is defined %}
+            <div class="result">
+                <h2>Result for {{ student_name }}, Roll Number: {{ roll_number }}</h2>
+                <p>Total Marks: {{ total_marks }}</p>
+                <p>Percentage: {{ percentage }}%</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
